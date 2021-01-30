@@ -16,9 +16,9 @@ namespace AppAISpeech.DocumentServices
         {
 
         }
-        public void Create(string DataToSaveInWord)
+        public string Create(string DataToSaveInWord,string filename)
         {
-
+            string response = "";
             using(var stream=new MemoryStream())
             {
                 using(var wordDocument=WordprocessingDocument.Create(stream, DocumentFormat.OpenXml.WordprocessingDocumentType.Document,true))
@@ -47,11 +47,12 @@ namespace AppAISpeech.DocumentServices
                     //Path.Combine(Xamarin.Essentials.FileSystem.AppDataDirectory, $"{DateTime.Now.ToString("yyyy-MM-dd")}Prueba.docx");
 
                     //File.WriteAllBytes(fileparth, stream.ToArray());
-                    DependencyService.Get<IFileOperations>().Save($"{DateTime.Now.ToString("yyyy-MM-dd:hh:mm:ss")}Prueba.docx", stream);
+                    response=DependencyService.Get<IFileOperations>().Save($"{filename}{DateTime.Now.ToString("yyyy-MM-dd:hh:mm:ss")}.docx", stream);
                     
                 }
                 
             }
+            return response;
             
             
         }

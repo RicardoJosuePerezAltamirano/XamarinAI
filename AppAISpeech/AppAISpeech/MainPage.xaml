@@ -3,13 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppAISpeech.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Button Text="Inicia grabacion" Clicked="Button_Clicked"></Button>
-        <Label x:Name="TextoResult"></Label>
+    <Grid RowDefinitions="*" ColumnDefinitions="*">
+        <StackLayout Grid.Row="0" Grid.Column="0">
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Creador de documentos con voz" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+            <Label Text="Escribe el nombre del archivo"></Label>
+            <Entry x:Name="FileName"></Entry>
+            <Button Text="Inicia grabacion" Clicked="Button_Clicked" x:Name="Grabar"></Button>
+            <Button Text="Finaliza la grabacion" Clicked="Button_Clicked_1" x:Name="Detener"></Button>
+            <Label x:Name="TextoResult" FontSize="Medium"></Label>
+
+        </StackLayout>
+
+            
         
-    </StackLayout>
+    </Grid>
 
 </ContentPage>

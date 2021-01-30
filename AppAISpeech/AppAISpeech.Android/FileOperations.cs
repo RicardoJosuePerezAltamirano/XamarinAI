@@ -18,7 +18,7 @@ namespace AppAISpeech.Droid
     
     public class FileOperations : IFileOperations
     {
-        public void Save(string fileName, MemoryStream data)
+        public string Save(string fileName, MemoryStream data)
         {
             //https://gist.github.com/lopspower/76421751b21594c69eb2
             string path =Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
@@ -27,6 +27,7 @@ namespace AppAISpeech.Droid
             string fullPath = Path.Combine(path, fileName);
             if(!File.Exists(fullPath))
             File.WriteAllBytes(fullPath, data.ToArray());
+            return fullPath;
 
 
         }

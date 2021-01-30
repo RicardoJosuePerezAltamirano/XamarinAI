@@ -7,6 +7,6 @@ namespace AppAISpeech
 {
     public interface IFileOperations
     {
-        void Save(string fileName,MemoryStream data);
+        string Save(string fileName,MemoryStream data);
     }
 }
