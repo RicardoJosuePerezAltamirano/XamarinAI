@@ -20,8 +20,26 @@ namespace AppAISpeech.Droid
     {
         public string Save(string fileName, MemoryStream data)
         {
-            //https://gist.github.com/lopspower/76421751b21594c69eb2
-            string path =Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDownloads).AbsolutePath;
+            //if ((int)Android.OS.Build.VERSION.SdkInt >= 29)
+            //{
+            //    jFolder = new Java.IO.File(Android.App.Application.Context.GetExternalFilesDir(Environment.DirectoryDcim), "Camera");
+            //}
+            //else
+            //{
+            //    jFolder = new Java.IO.File(Environment.GetExternalStoragePublicDirectory(Environment.DirectoryDcim), "Camera");
+            //}
+            string path = "";
+            if ((int)Android.OS.Build.VERSION.SdkInt >= 29)
+            {
+                 path=Android.App.Application.Context.GetExternalFilesDir(Android.OS.Environment.DirectoryDocuments).AbsolutePath;
+            }
+            else
+            {
+                path = Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryDocuments).AbsolutePath;
+            }
+
+                //https://gist.github.com/lopspower/76421751b21594c69eb2
+                
                // Android.OS.Environment.ExternalStorageDirectory.Path; 
             //Android.App.Application.Context.GetExternalFilesDir("").AbsolutePath;
             string fullPath = Path.Combine(path, fileName);

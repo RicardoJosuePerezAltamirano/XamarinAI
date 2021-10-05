@@ -49,7 +49,9 @@ namespace AppAISpeech.Droid
                             microphoneService.OnRequestPermissionsResult(false);
                         }
                 }
+                
                     break;
+                
             }
             ChechStoragePermissions();
 
