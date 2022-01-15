@@ -23,7 +23,7 @@ namespace AppAISpeech
         {
             InitializeComponent();
             DocumentService = new MobileDocument();
-            sppechConfig = SpeechConfig.FromEndpoint(new Uri("https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issuetoken"), "f943293eeeeb442b965c469afb3155f9");
+            sppechConfig = SpeechConfig.FromEndpoint(new Uri("https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issuetoken"), "");
             sppechConfig.SpeechRecognitionLanguage = "es-MX";
             var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
             recognizer = new SpeechRecognizer(sppechConfig, audioConfig);
@@ -72,7 +72,7 @@ namespace AppAISpeech
                 var permision = await DependencyService.Get<IMicrophoneService>().GetPermission();
                 if (permision)
                 {
-                    //sppechConfig = SpeechConfig.FromEndpoint(new Uri("https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issuetoken"), "f943293eeeeb442b965c469afb3155f9");
+                    //sppechConfig = SpeechConfig.FromEndpoint(new Uri("https://southcentralus.api.cognitive.microsoft.com/sts/v1.0/issuetoken"), "");
                     //sppechConfig.SpeechRecognitionLanguage = "es-MX";
                     //var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
                     //using (var recognizer = new SpeechRecognizer(sppechConfig, audioConfig))
